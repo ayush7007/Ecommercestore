@@ -33,6 +33,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'cancancan' # or cancancan
 gem 'draper'
 gem 'pundit'
+gem 'active_skin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
