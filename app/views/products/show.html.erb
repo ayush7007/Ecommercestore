@@ -15,6 +15,12 @@
   <%= @product.description %>
 </p>
 
+<%if signed_in?%>
+  <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do%>
+    <i class="fi-shopping-cart"></i>
+    <span><%=@cart_action%></span> Cart
+  <%end%>
+<%end%>
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
