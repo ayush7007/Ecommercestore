@@ -15,7 +15,17 @@
   <%= @product.description %>
 </p>
 
+<p>
+<strong>Features:</strong>
+<table>
+	<% @features.each do |feature| %>
+      <tr>
+        <td><%= feature.name %></td>
+        <td><%= feature.value %></td>
+        </tr>
+     <% end%>
 
+</table>
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

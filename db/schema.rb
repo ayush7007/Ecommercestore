@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607170825) do
+ActiveRecord::Schema.define(version: 20170609084105) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20170607170825) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "features", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.string   "name",       limit: 255, null: false
+    t.string   "value",      limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "features", ["product_id"], name: "index_features_on_product_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id",  limit: 4
@@ -112,6 +122,7 @@ ActiveRecord::Schema.define(version: 20170607170825) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "features", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "order_statuses"
