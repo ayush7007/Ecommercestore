@@ -3,6 +3,7 @@ ActiveAdmin.register Feature do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 permit_params :product_id, :name, :value
+#permit_params  :name, :value
 #
 # or
 #
